@@ -1,0 +1,67 @@
+/*All CSS for the entire site*/
+
+body{
+	font-family: 'Open Sans', sans-serif;
+	color: black;	
+	background-color: darkkhaki;
+}
+
+h1, h2{ /*also affected by body*/
+	font-family: 'Josefin Sans', sans-serif;
+}
+
+h1{
+	font-size: 4em;
+}
+
+h2{
+	font-size: 2em;
+}
+
+#header{
+	background-color: #73A22F;
+	/*centers the div on the page:*/
+	margin-left: auto;
+	margin-right: auto;
+	/*centers the text in the div:*/
+	text-align: center;
+	height: 7em;
+	width: 50%;
+	/*cool rounded corners*/
+	-moz-border-radius: 1em 4em 1em 4em;
+	border-radius: 1em 4em 1em 4em;
+}
+
+#main{/*the main block*/
+	float: right;
+	width: 60%;
+	background-color: #225D6E;
+	margin: 3em;
+	-moz-border-radius: 2em;
+	border-radius: 2em;
+	padding: 2em;
+}
+
+#nav{/*the navigation sidebar*/
+	float: left;
+	width: 16%;
+	background-color: #B04433;
+	margin: 3em;
+	padding: 2em;
+	-moz-border-radius: 2em;
+	border-radius: 2em;
+}
+
+#myPicture{/*resize and round*/
+	width: 13em;
+	-moz-border-radius: 1em;
+	border-radius: 1em;
+}
+
+.navlink a:link{/*unvisited links*/
+	color: cadetblue;
+}
+
+.navlink a:visited{
+	color: orchid;
+}
