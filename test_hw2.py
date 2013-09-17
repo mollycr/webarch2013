@@ -73,14 +73,14 @@ def test_comment(soup):
 
 def test_id(soup):
     assert [e['id'] for e in soup.find_all() if e.get('id')]
-    print  [e['id'] for e in soup.find_all() if e.get('id')]
+    print "\nids %r" % [e['id'] for e in soup.find_all() if e.get('id')]
 
 
 def test_class(soup):
     assert [e['class'] for e in soup.find_all() if e.get('class')]
-    print  [e['class'] for e in soup.find_all() if e.get('class')]
+    print "\nclass %r" % [e['class'] for e in soup.find_all() if e.get('class')]
 
 
 def test_style(soup):
     assert [e['style'] for e in soup.find_all() if e.get('style')]
-    print  [e['style'] for e in soup.find_all() if e.get('style')]
+    print "\n style %r" % [e['style'] for e in soup.find_all() if e.get('style')]
