@@ -8,6 +8,7 @@ from bs4 import Comment
 
 
 css_validator = 'http://jigsaw.w3.org/css-validator/validator?'
+html_validator = 'http://validator.w3.org/check?'
 
 
 def create_url(base, url):
@@ -19,6 +20,10 @@ def create_url(base, url):
         return path.join('/'.join(base.split('/')[:-1]), url)
 
 
+def test_html_valid(url):
+    assert any("document was successfully checked" in line for line in urlopen(html_validator + urlencode({'uri': url})).readlines()), "Error found in %s" % url
+
+
 def test_len(soup):
     assert len(soup.title.string)
 
@@ -27,11 +32,13 @@ def test_head(soup):
     assert soup.head
 
 
-def test_css_links(soup, url):
-    assert soup.head.link
-
+def test_css_links(soup):
     css_links = [l['href'] for l in soup.find_all('link') if "css" in l.get('href')]
     assert len(css_links) >= 2
+
+
+def test_css_valid(soup, url):
+    css_links = [l['href'] for l in soup.find_all('link') if "css" in l.get('href')]
     for link in css_links:
         assert any("No Error Found" in line for line in urlopen(css_validator + urlencode({'uri': create_url(url, link)})).readlines()), "Error found in %s" % link
 
