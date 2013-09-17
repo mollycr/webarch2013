@@ -42,6 +42,7 @@ def test_css_valid(soup, url):
     for link in css_links:
         assert any("No Error Found" in line for line in urlopen(css_validator + urlencode({'uri': create_url(url, link)})).readlines()), "Error found in %s" % link
 
+    assert any("/*" in line for link in css_links for line in urlopen(create_url(url, link)).readlines()), "No comments in %r" % css_links
 
 def test_body(soup):
     assert soup.body
