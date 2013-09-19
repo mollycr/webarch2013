@@ -1,0 +1,15 @@
+body{
+	font-family: "sans-serif";
+}
+
+.newword{
+	font-weight: bold;
+}
+
+#story{
+	display: none;
+}
+
+#words{
+	display: block;
+}
