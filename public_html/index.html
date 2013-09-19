@@ -1,18 +1,120 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
-    <head>
-        <title>Molly Robison</title>
-		<!-- --!>
-    </head>
-    <body>
-        <div id="header">
-			
+	<head>
+		<meta charset="utf-8">
+		<title>MadLibs</title>
+		<link type="text/css" rel="stylesheet" href="madlibs.css">
+		<script type="text/javascript">
+			//function: submit
+			function validate(){
+				var fids = ["animal1", "ontomontopea", "celebrity", "noun1", "noun2", "website", "noun3", "animal2", "body", 
+							"day", "location", "number", "noun4", "verb"];
+				var sids = ["aanimal1", "aontomontopea", "acelebrity", "anoun1", "anoun2", "awebsite", "anoun3", "aanimal2", "abody", 
+							"aday", "alocation", "anumber", "anoun4", "averb"];
+
+				//everything filled out
+				for(var i=0; i<sids.length; i++){
+					var temp = document.getElementById(fids[i]).value;
+					if(temp==null || temp==""){
+						alert("Please make sure to fill out every item in the form");
+						return 0;
+					}
+				}
+				//only numbers in number
+				var regex = /^[0-9]+$/;
+				if(!document.getElementById("number").value.match(regex)){
+					alert("The number field should only contain digits");
+					return 0;
+				}
+		
+				//fill in the story
+				for(var i=0; i<fids.length; i++){
+					document.getElementById(sids[i]).innerHTML = document.getElementById(fids[i]).value;
+				}
+
+				//do the dropdown list
+				var drop = document.getElementById("city");
+				document.getElementById("acity").innerHTML = drop.options[drop.selectedIndex].value;
+
+				//do the radio button
+				//shockingly, there doesn't seem to be a better way to do this
+				var radiobuttons = document.getElementsByName("drink");
+				for (var i = 0; i<radiobuttons.length; i++) {
+					if (radiobuttons[i].checked) {
+						document.getElementById("adrink").innerHTML = radiobuttons[i].value;
+					}
+				}
+
+				//do the check boxes
+				if(document.getElementById("sport1").checked){
+					document.getElementById("asport1").innerHTML = document.getElementById("sport1").value;
+				}
+				if(document.getElementById("sport2").checked){
+					document.getElementById("asport2").innerHTML = document.getElementById("sport2").value;
+				}
+
+				//show and hide, respectively
+				document.getElementById('words').style.display = 'none';
+				document.getElementById('story').style.display = 'block';
+
+				//don't reload or anything
+				return false;
+			}
+		</script>
+	</head>
+	<body>
+		<h1>MadLibs</h1>
+		<p>	Hi there, everybody! This is a web version of the popular paper game MadLibs, where you fill out a form
+			with some words, plug those words into blanks in a story, and then see the hilarious results. Just fill
+			out the form below to get started.
+		</p>
+		<form id="words" onsubmit="return false;">
+			<label>Your favorite animal: <input id="animal1" type="text"></label></br>
+			<label>An ontomontopea: <input id="ontomontopea" type="text"></label></br>
+			<label>Celebrity: <input id="celebrity" type="text"></label></br>
+			<label>Noun: <input id="noun1" type="text"></label></br>
+			<label>Noun: <input id="noun2" type="text"></label></br>
+			<label>Popular website: <input id="website" type="text"></label></br>
+			<label>Noun <input id="noun3" type="text"></label></br>
+			<label>Your second-favorite animal: <input id="animal2" type="text"></label></br>
+			<label>Body part: <input id="body" type="text"></label></br>
+			<label>Day: <input id="day" type="text"></label></br>
+			<label>Location: <input id="location" type="text"></label></br>
+			<label>Number: <input id="number" type="text"></label></br>
+			<label>Noun: <input id="noun4" type="text"></label></br>
+			<label>Verb: <input id="verb" type="text"></label></br>
+			<label>Your favorite rural Michigan city: <select id="city">
+				<option value="Capac">Capac</option>
+				<option value="Durand">Durand</option>
+				<option value="Dexter">Dexter</option>
+				<option value="Saginaw">Saginaw</option>
+			</select></label></br>
+			<label> Which do you prefer?
+				<input type="radio" name="drink" value="Beer" checked> Beer<br>
+				<input type="radio" name="drink" value="Wine"> Wine<br>
+				<input type="radio" name="drink" value="Yoohoo"> Yoohoo
+			</label></br>
+			<label>Do you like the 49ers?<input type="checkbox" id="sport1" value="Go 49ers!">  </label></br>
+			<label>Do you like the Raiders?<input type="checkbox" id="sport2" value="Go Raiders!"> </label>
+			</br>
+			<label>Generate! <input type="submit" onclick="validate(); return false;" value="Go!"></label>
+		</form>
+		<div id="story">
+			<h2> Keynote Address</h2>
+			<p>	It's great to be here at the <span id="acelebrity" class="newword">___</span> 
+				memorial theater, in front of all of these <span id="anoun1" class="newword">
+				___</span>s. You know, when I first told my <span id="anoun2" class="newword">
+				___</span> about my idea for <span id="aanimal1" class="newword">___</span><span id="aontomontopea" class="newword">___</span>, 
+				the <span id="awebsite" class="newword">___</span> for <span id="anoun3" class="newword">
+				___</span>s, they said it wasn't worth a <span id="aanimal2" class="newword">___</span>'s 
+				<span id="abody" class="newword">___</span>. But look at us <span id="aday" class="newword">
+				___</span>! We have a beautiful office in <span id="alocation" class="newword">___</span>, a staff of 
+				<span id="anumber" class="newword">__</span>s, all because of the <span id="anoun4" class="newword">
+				___</span> that you've all given us. We really can't <span id="averb" class="newword">___</span> you enough.
+				Enjoy the convention, the free <span id="adrink" class="newword">___</span> and all that 
+				<span id="acity" class="newword">___</span> has to offer. <span id="asport1" class="newword"></span>
+				<span id="asport2" class="newword"></span>
+			</p>
 		</div>
-		<div id="nav">
-			
-		</div>
-		<div id="main">
-			
-		</div>
-    </body>
+	</body>
 </html>
