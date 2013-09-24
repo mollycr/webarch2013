@@ -1,0 +1,21 @@
+Molly Robison
+Homework 4
+
+1.
+	a. 200 OK
+	b. 302 Found
+		i. GET en.wikipedia.org
+	c. 405 Method Not Allowed
+2. 	a. 	The web browser sends a GET request to my server, running on 
+		ischool.berkeley.edu
+	b. 	The server running on ischool.berkeley sends back a 302 redirect
+		to en.wikipedia.org.
+	c. 	The web browser performs the necessary requests to find the server
+		that en.wikipedia.org is hosted on, which I assume we're leaving out
+		at this point in the class.
+	d. 	The web browser sends a GET request to the server that Wikipedia
+		is hosted on
+	e.	Wikipedia's server sends back a 200 OK, followed by the HTML
+	f.	The browser renders the HTML, and requests whatever other files
+		are needed to render the page.
+3. 404 not found
