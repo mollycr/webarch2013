@@ -1,0 +1,25 @@
+1.	GET /home?name=Molly+Robison&title=i213+Web+Architecture
+
+2.1	PUT /wiki HTTP/1.1
+	Host: localhost
+	Content-Length: 29
+	Content-Type: application/x-www-form-urlencoded
+
+	url=http://starwars.wikia.com
+
+2.2 go to people.ischool.berkeley.edu/~mrobison/server/wiki and make sure it redirects
+
+3	POST /wiki HTTP/1.1
+	Host: localhost
+	Content-Length: 18
+	Content-Type: application/x-www-form-urlencoded
+
+	url=http://w3c.org
+
+4.	Content-Type: image/png
+
+5. Extra credit:
+	if(str(request.accept_mimetypes)=='text/plain'):
+		resp = flask.make_response("My %s %s said i253 was %s" % (relationship, name, adjective))
+		resp.headers['Content-Type'] = 'text/plain'
+	else:
