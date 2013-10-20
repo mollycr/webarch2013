@@ -1,0 +1,8 @@
+As seen in this ls output, the uncompressed data is 72K bigger than the compressed data.
+
+-rw-rw-r-- 1 mrobison mrobison  19K Oct 14 10:49 compressed.txt
+-rw-rw-r-- 1 mrobison mrobison  91K Oct 14 10:50 uncompressed.txt
+
+commands used:
+$curl -vH "Accent-Encoding: gzip" http://www.yelp.com > compressed.txt
+$curl -v http://www.yelp.com > uncompressed.txt
