@@ -1,0 +1,11 @@
+SELECT * FROM links WHERE created>'2013-10-14';
+11
+
+SELECT * FROM links WHERE created>'2013-10-14' AND hit_count<40;
+1
+
+INSERT INTO links VALUES("http://meliora.cc", "molly", 75, '2010-10-10');
+
+No, because of atomicity: either all updates will go through or none will
+
+UPDATE links SET hit_count=105 WHERE short_url='molly';
