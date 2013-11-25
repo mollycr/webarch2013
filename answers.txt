@@ -1,0 +1,21 @@
+What series of IPs would a recursive DNS server use to find the address of m.yelp.com?
+199.7.83.42
+192.26.92.30
+208.78.71.18
+199.255.189.34
+
+What are the IP addresses of m.yelp.com?
+198.51.132.234
+199.255.189.34
+198.51.132.34
+199.255.189.234
+
+Do IP packets leave the Berkeley network when traveling to amplab.cs.berkeley.edu? Include the command and output.
+No, thankfully.
+$ traceroute amplab.cs.berkeley.edu
+traceroute to amplab.cs.berkeley.edu (128.32.37.248), 30 hops max, 60 byte packets
+ 1  g3-35.inr-211-srb.Berkeley.EDU (128.32.78.3)  0.877 ms  0.933 ms  0.947 ms
+ 2  t6-1.inr-202-reccev.Berkeley.EDU (128.32.255.126)  0.955 ms  0.960 ms  1.022 ms
+ 3  evans-eecs-br-10GE.EECS.Berkeley.EDU (128.32.255.54)  2.156 ms  2.190 ms  2.096 ms
+ 4  soda-10g-edge.EECS.Berkeley.EDU (169.229.59.242)  2.457 ms  2.459 ms  2.491 ms
+ 5  www-research2.CS.Berkeley.EDU (128.32.37.248)  1.762 ms !X  1.803 ms !X  1.925 ms !X
