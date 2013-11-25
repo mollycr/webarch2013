@@ -1,0 +1,34 @@
+8.
+	var elm = dom.getElementById("blink");
+	while(true){
+		if(elm.style.color=="red"){
+			elm.style.color="white";
+			sleep(1000); //sleep one second
+			//not a function, but let's pretend
+		}
+		else if(elm.style=="white"){
+			elm.style.color="red";
+			sleep(1000);
+		}
+		else{
+			//it's red now
+			elm.style.color="red";
+			sleep(1000);
+		}
+	}
+
+15.
+	SSH does not use HTTP
+	HTTP uses TCP
+	TCP uses IP
+	DNS uses IP
+	DNS uses UDP
+	HTTP does not use DNS
+
+17. 
+	Host, Content-Length and Content-Type are headers used to ensure data in a POST request is handled correctly.
+
+20.
+	1. Returns a standard HTTP error code
+	2. Information is transferred over HTTP
+	3. Uses the PUT method
